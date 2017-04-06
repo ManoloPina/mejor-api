@@ -53,6 +53,17 @@ class UsersRouter {
     });
   }
 
+  updateAssinature(req, res) {
+    let userId = req.body.userId;
+    let assinature = req.body.assinature;
+    this.users.update({userId: userId}, {assinature: assinature})
+    .then(result => {
+      res.json({message: `Atualização de assinatura para o plano ${assinature}`});
+    }).catch(err => {
+      res.status(500).json(err);
+    });
+  }
+
 }
 
 module.exports = UsersRouter;

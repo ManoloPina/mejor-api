@@ -40,6 +40,7 @@ class Server {
     //Authentication router
     this.express.post('/login', this.parseUrlencoded, this.usersRouter.post.bind(this));
     this.express.post('/users/create', this.parseUrlencoded, this.usersRouter.createAccount.bind(this));
+    this.express.post('/users/update/assinature', this.parseUrlencoded, this.usersRouter.updateAssinature.bind(this));
     this.express.listen(5200);
   }
 
