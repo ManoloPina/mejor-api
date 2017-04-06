@@ -1,0 +1,7 @@
+{
+  "ignore": [
+    "app/components/*.js",
+    "gulpfile.js",
+    "vendor/js/*"
+  ]
+}
