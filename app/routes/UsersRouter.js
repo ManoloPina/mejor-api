@@ -45,7 +45,7 @@ class UsersRouter {
     let password = req.body.password;
     let hashPass = Bcrypt.hashSync(password, Constants.SALTS_ROUND);
     let encryptedPass = 
-    this.users.insert({email: email, password: hashPass})
+    this.users.insert({email: email, password: hashPass, assinature: ''})
     .then(result => {
       res.json(result);
     }).catch(err => {
@@ -56,9 +56,10 @@ class UsersRouter {
   updateAssinature(req, res) {
     let userId = req.body.userId;
     let assinature = req.body.assinature;
-    this.users.update({userId: userId}, {assinature: assinature})
+    console.log('assinatue', assinature);
+    this.users.update({_id: userId}, {assinature: assinature})
     .then(result => {
-      res.json({message: `Atualização de assinatura para o plano ${assinature}`});
+      res.json({message: `Atualização de assinatura para o plano ${assinature}`, result: result});
     }).catch(err => {
       res.status(500).json(err);
     });

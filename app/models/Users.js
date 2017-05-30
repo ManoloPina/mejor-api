@@ -11,7 +11,7 @@ class Users extends Connection {
       password: String,
       assinature: String
     }, {collection: 'users'});
-    this.usuarios = this.mongoose.model('usuarios', this.schema);
+    this.usuarios = this.mongoose.model('users', this.schema);
   }
 
   find(query, sortObject = {}) {
